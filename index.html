@@ -70,6 +70,10 @@ section{padding:72px 0}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:-16px 0 36px}
 .filters button{font:500 15px var(--b);color:var(--ink);background:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 18px;cursor:pointer}
 .filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.stop h4 a{text-decoration:none}
+.stop h4 a:after{content:"";position:absolute;inset:0;border-radius:20px}
+.stop:hover{border-color:var(--ink)}
+.stop a.more{position:relative;z-index:1}
 .group{margin-bottom:48px}
 .group[hidden]{display:none}
 .gh{font:700 16px var(--d);margin-bottom:20px;display:flex;gap:10px;align-items:center}
@@ -117,20 +121,20 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
   </div>
 
   <div class="group" data-g="done">
-    <h3 class="gh">Готово <span>0</span></h3>
-    <div class="empty">Пока пусто: первое приложение сейчас в разработке. Релизы появятся здесь.</div>
+    <h3 class="gh">Готово <span>1</span></h3>
+    <div class="stops">
+      <article class="stop">
+        <h4><a href="maps.html">Maps</a> <span class="tag">готов · обновляется</span></h4>
+        <p>Приложение карт на Flutter: GPS в реальном времени, поиск рядом, маршруты А → Б, пять слоёв карты и оффлайн-кэш тайлов.</p>
+        <ul class="chips"><li>Flutter</li><li>Dart</li><li>OpenStreetMap</li><li>OSRM</li><li>Geolocator</li></ul>
+        <a class="more" href="maps.html">Читать подробнее</a> · <a class="more" href="https://github.com/helltrilla/maps">Код на GitHub</a>
+      </article>
+    </div>
   </div>
 
   <div class="group" data-g="dev">
-    <h3 class="gh">В разработке <span>1</span></h3>
-    <div class="stops">
-      <article class="stop">
-        <h4>Maps <span class="tag">в разработке</span></h4>
-        <p>Приложение карт на Flutter: поиск мест, геолокация, маршруты, маркеры и кэширование карт для работы без сети.</p>
-        <ul class="chips"><li>Flutter</li><li>Dart</li><li>OpenStreetMap</li><li>OSRM</li><li>Geolocator</li></ul>
-        <a class="more" href="https://github.com/helltrilla/maps">Код на GitHub</a>
-      </article>
-    </div>
+    <h3 class="gh">В разработке <span>0</span></h3>
+    <div class="empty">Сейчас активных проектов нет. Новое приложение появится здесь.</div>
   </div>
 
   <div class="group" data-g="plan">

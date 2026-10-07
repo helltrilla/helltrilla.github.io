@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maps — Flutter-приложение карт · helltrilla</title>
+<meta name="description" content="Maps — мобильное приложение карт на Flutter: GPS, поиск, маршруты, слои карты, карточки заведений.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maps — Flutter-приложение карт">
+<meta property="og:description" content="GPS, геопоиск, маршруты А → Б, слои карты, оффлайн-кэш тайлов.">
+<meta property="og:url" content="https://helltrilla.github.io/maps.html">
+<meta property="og:image" content="https://helltrilla.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#000;--mute:#555;--line:#d4d4d4;--card:#f6f6f6;--d:'Unbounded','Arial Black',sans-serif;--b:'Onest',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--mute:#a0a0a0;--line:#333;--card:#0d0d0d}}
+:root[data-theme="dark"]{--bg:#000;--ink:#fff;--mute:#a0a0a0;--line:#333;--card:#0d0d0d}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--b);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.w{max-width:980px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;padding:24px 0;font-weight:500}
+header a{text-decoration:none}
+.logo{font:700 18px var(--d)}
+h1{font:700 clamp(36px,8vw,72px)/1.05 var(--d);letter-spacing:-.02em;margin:40px 0 20px}
+h2{font:700 clamp(22px,3.5vw,30px)/1.2 var(--d);margin:72px 0 28px}
+h3{font:700 17px var(--d);margin-bottom:10px}
+.tag{display:inline-block;font:500 14px var(--b);padding:3px 14px;border:1px solid currentColor;border-radius:999px}
+.lead{max-width:36em;color:var(--mute);font-size:19px;margin:20px 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 24px;border-radius:999px;border:2px solid var(--ink);font-weight:500;text-decoration:none}
+.btn.main{background:var(--ink);color:var(--bg)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:40px}
+.facts div{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:var(--card)}
+.facts b{display:block;font:500 13px var(--b);color:var(--mute)}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 16px}
+.shots figure{flex:0 0 auto;scroll-snap-align:start;max-width:230px}
+.shots img{display:block;height:440px;width:auto;max-width:100%;border-radius:24px;border:1px solid var(--line);background:var(--card)}
+.shots figcaption{font-size:14px;color:var(--mute);margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.card{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card)}
+.card ul{padding-left:18px;color:var(--mute);font-size:16px}
+.card li{margin-bottom:6px}
+pre{overflow-x:auto;border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card);font:14px/1.6 ui-monospace,Menlo,Consolas,monospace}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}
+.chips li{font-size:15px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+p.n{color:var(--mute);max-width:40em}
+.note{font-size:14px;color:var(--mute);margin-top:12px}
+footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mute);font-size:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<div class="w">
+<header><a class="logo" href="/">← helltrilla</a><a href="https://github.com/helltrilla/maps">GitHub</a></header>
+
+<main>
+<span class="tag">готов · обновляется</span>
+<h1>Maps</h1>
+<p class="lead">Мобильное приложение карт на Flutter: живая геолокация, умный поиск рядом, маршруты А → Б, пять слоёв карты и карточки заведений. Проект завершён, дальше он будет только обновляться.</p>
+<div class="btns">
+  <a class="btn main" href="https://github.com/helltrilla/maps">Код на GitHub</a>
+  <a class="btn" href="#features">Возможности</a>
+</div>
+<div class="facts">
+  <div><b>Платформа</b>iOS</div>
+  <div><b>Стек</b>Flutter 3 · Dart 3</div>
+  <div><b>Карты</b>OpenStreetMap</div>
+  <div><b>Лицензия</b>MIT</div>
+</div>
+
+<h2>Скриншоты</h2>
+<div class="shots">
+  <figure><img src="img/maps/main_map.png" data-f="main_map.png" alt="Главный экран с картой и заведениями" loading="lazy"><figcaption>Карта и заведения</figcaption></figure>
+  <figure><img src="img/maps/search_nearby.png" data-f="search_nearby.png" alt="Поиск заведений рядом" loading="lazy"><figcaption>Поиск рядом</figcaption></figure>
+  <figure><img src="img/maps/place_details.png" data-f="place_details.png" alt="Карточка заведения" loading="lazy"><figcaption>Карточка заведения</figcaption></figure>
+  <figure><img src="img/maps/route_planner.png" data-f="route_planner.png" alt="Планировщик маршрута" loading="lazy"><figcaption>Маршруты А → Б</figcaption></figure>
+  <figure><img src="img/maps/point_picker.png" data-f="point_picker.png" alt="Выбор точки на карте" loading="lazy"><figcaption>Выбор точки на карте</figcaption></figure>
+</div>
+
+<h2 id="features">Возможности</h2>
+<div class="grid">
+  <article class="card"><h3>GPS в реальном времени</h3><ul>
+    <li>Непрерывное отслеживание позиции с высокой точностью</li>
+    <li>Анимированный маркер: пульсирующий ореол и конус направления</li>
+    <li>Режим автоследования, который мягко отключается при ручном сдвиге карты</li></ul></article>
+  <article class="card"><h3>Глубокий зум</h3><ul>
+    <li>Приближение до 21–22 уровня вплоть до номеров домов</li>
+    <li>За пределами нативного зума сервера тайлы масштабируются без пустых квадратов и ошибок 404</li></ul></article>
+  <article class="card"><h3>Геопоиск рядом</h3><ul>
+    <li>Запросы привязаны к текущей позиции, результаты сортируются по удалённости</li>
+    <li>Бейдж с расстоянием у каждого места (180 м, 1,2 км)</li>
+    <li>Быстрые категории: кафе, магазины, аптеки, АЗС, рестораны</li></ul></article>
+  <article class="card"><h3>Выбор точки на карте</h3><ul>
+    <li>Старт и финиш можно задать прямо на карте</li>
+    <li>Прицел по центру экрана с тактильной отдачей</li>
+    <li>Панель подтверждения и быстрая отмена</li></ul></article>
+  <article class="card"><h3>Маршруты А → Б</h3><ul>
+    <li>Автомобильная маршрутизация OSRM: дистанция и время в пути</li>
+    <li>Любые комбинации: GPS, заведение, сохранённая метка, точка на карте</li>
+    <li>Смена направления одной кнопкой, автозум на весь маршрут</li></ul></article>
+  <article class="card"><h3>Пять слоёв карты</h3><ul>
+    <li>Классика (OSM), спутник, городской (CyclOSM), топографический, ночной</li>
+    <li>Оффлайн-кэш тайлов на диске: быстрее загрузка и меньше трафика</li></ul></article>
+  <article class="card"><h3>Карточки заведений</h3><ul>
+    <li>Галерея фото, рейтинг, отзывы, статус работы, телефон и адрес</li>
+    <li>Действия: построить маршрут, скопировать координаты</li></ul>
+    <p class="note">Фото и отзывы в карточках демонстрационные.</p></article>
+  <article class="card"><h3>Устойчивые данные</h3><ul>
+    <li>Overpass API с пулом зеркал: при ошибке 504 запрос уходит на другой сервер</li>
+    <li>Локальное хранилище сохранённых меток</li></ul></article>
+  <article class="card"><h3>Интерфейс</h3><ul>
+    <li>Тёмный стиль с эффектом матового стекла (BackdropFilter)</li>
+    <li>Учёт Dynamic Island и безопасных зон</li></ul></article>
+</div>
+
+<h2>Архитектура</h2>
+<p class="n" style="margin-bottom:20px">Код разделён на модели, сервисы и виджеты, единая тема вынесена в отдельный файл.</p>
+<pre>lib/
+├── app_theme.dart       # дизайн-система
+├── main.dart            # точка входа
+├── main_screen.dart     # экран карты
+├── models/              # место, отзыв, маршрут, метка, стиль тайлов
+├── services/            # GPS, Overpass, OSRM, Photon, хранилище меток
+└── widgets/             # шторки, поиск, маркеры, карточки</pre>
+
+<h2>Стек</h2>
+<ul class="chips"><li>Flutter</li><li>Dart</li><li>flutter_map</li><li>flutter_map_cache</li><li>dio_cache_interceptor</li><li>geolocator</li><li>latlong2</li><li>shared_preferences</li><li>OSRM</li><li>Overpass API</li><li>Photon</li></ul>
+
+<h2>Тесты</h2>
+<p class="n">Юнит-тесты покрывают модели и сервисы: расстояние и время маршрута, произвольные точки А → Б, сохранение меток, стили карт, модели заведений и карточки мест.</p>
+
+<h2>Запуск</h2>
+<pre>git clone https://github.com/helltrilla/maps.git
+cd maps
+flutter pub get
+flutter analyze
+flutter test
+flutter run</pre>
+<p class="note">Нужен Flutter SDK 3.24 или новее и Xcode для iOS.</p>
+</main>
+
+<footer><span>© helltrilla · лицензия MIT</span><a href="/">На главную</a></footer>
+</div>
+<script>
+document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.dataset.f&&!t.dataset.r){t.dataset.r=1;t.src='https://raw.githubusercontent.com/helltrilla/maps/main/assets/screenshots/'+t.dataset.f}},true);
+</script>
+</body>
+</html>
