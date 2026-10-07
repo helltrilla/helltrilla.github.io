@@ -42,7 +42,7 @@ h3{font:700 17px var(--d);margin-bottom:10px}
 .facts b{display:block;font:500 13px var(--b);color:var(--mute)}
 .shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 16px}
 .shots figure{flex:0 0 auto;scroll-snap-align:start;max-width:230px}
-.shots img{display:block;height:440px;width:auto;max-width:100%;border-radius:24px;border:1px solid var(--line);background:var(--card)}
+.shots img{display:block;height:440px;width:auto;aspect-ratio:1206/2622;border-radius:24px;border:1px solid var(--line);background:var(--card)}
 .shots figcaption{font-size:14px;color:var(--mute);margin-top:8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
 .card{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card)}
@@ -77,11 +77,11 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;colo
 
 <h2>Скриншоты</h2>
 <div class="shots">
-  <figure><img src="img/maps/main_map.png" data-f="main_map.png" alt="Главный экран с картой и заведениями" loading="lazy"><figcaption>Карта и заведения</figcaption></figure>
-  <figure><img src="img/maps/search_nearby.png" data-f="search_nearby.png" alt="Поиск заведений рядом" loading="lazy"><figcaption>Поиск рядом</figcaption></figure>
-  <figure><img src="img/maps/place_details.png" data-f="place_details.png" alt="Карточка заведения" loading="lazy"><figcaption>Карточка заведения</figcaption></figure>
-  <figure><img src="img/maps/route_planner.png" data-f="route_planner.png" alt="Планировщик маршрута" loading="lazy"><figcaption>Маршруты А → Б</figcaption></figure>
-  <figure><img src="img/maps/point_picker.png" data-f="point_picker.png" alt="Выбор точки на карте" loading="lazy"><figcaption>Выбор точки на карте</figcaption></figure>
+  <figure><img src="img/maps/main_map.png" data-f="main_map.png" alt="Главный экран с картой и заведениями" width="202" height="440" loading="lazy"><figcaption>Карта и заведения</figcaption></figure>
+  <figure><img src="img/maps/search_nearby.png" data-f="search_nearby.png" alt="Поиск заведений рядом" width="202" height="440" loading="lazy"><figcaption>Поиск рядом</figcaption></figure>
+  <figure><img src="img/maps/place_details.png" data-f="place_details.png" alt="Карточка заведения" width="202" height="440" loading="lazy"><figcaption>Карточка заведения</figcaption></figure>
+  <figure><img src="img/maps/route_planner.png" data-f="route_planner.png" alt="Планировщик маршрута" width="202" height="440" loading="lazy"><figcaption>Маршруты А → Б</figcaption></figure>
+  <figure><img src="img/maps/point_picker.png" data-f="point_picker.png" alt="Выбор точки на карте" width="202" height="440" loading="lazy"><figcaption>Выбор точки на карте</figcaption></figure>
 </div>
 
 <h2 id="features">Возможности</h2>
@@ -149,7 +149,7 @@ flutter run</pre>
 <footer><span>© helltrilla · лицензия MIT</span><a href="/">На главную</a></footer>
 </div>
 <script>
-document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.dataset.f&&!t.dataset.r){t.dataset.r=1;t.src='https://raw.githubusercontent.com/helltrilla/maps/main/assets/screenshots/'+t.dataset.f}},true);
+document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.dataset.f&&!t.dataset.r){t.dataset.r=1;t.src='https://raw.githubusercontent.com/helltrilla/maps/main/docs/screenshots/'+t.dataset.f}},true);
 </script>
 </body>
 </html>
