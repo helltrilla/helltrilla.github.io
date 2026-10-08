@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TodoApp — Менеджер задач на Flutter · helltrilla</title>
+<meta name="description" content="TodoApp — мобильное приложение на Flutter: менеджер задач, категории, подзадачи, таймер фокусировки и Supabase.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TodoApp — Менеджер задач на Flutter">
+<meta property="og:description" content="Категории с иконками, подзадачи, Pomodoro-таймер и авторизация через Supabase OTP.">
+<meta property="og:url" content="https://helltrilla.github.io/todo.html">
+<meta property="og:image" content="https://helltrilla.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#000;--mute:#555;--line:#d4d4d4;--card:#f6f6f6;--d:'Unbounded','Arial Black',sans-serif;--b:'Onest',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--mute:#a0a0a0;--line:#333;--card:#0d0d0d}}
+:root[data-theme="dark"]{--bg:#000;--ink:#fff;--mute:#a0a0a0;--line:#333;--card:#0d0d0d}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--b);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.w{max-width:980px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;padding:24px 0;font-weight:500}
+header a{text-decoration:none}
+.logo{font:700 18px var(--d)}
+h1{font:700 clamp(36px,8vw,72px)/1.05 var(--d);letter-spacing:-.02em;margin:40px 0 20px}
+h2{font:700 clamp(22px,3.5vw,30px)/1.2 var(--d);margin:72px 0 28px}
+h3{font:700 17px var(--d);margin-bottom:10px}
+.tag{display:inline-block;font:500 14px var(--b);padding:3px 14px;border:1px solid currentColor;border-radius:999px}
+.lead{max-width:36em;color:var(--mute);font-size:19px;margin:20px 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:13px 24px;border-radius:999px;border:2px solid var(--ink);font-weight:500;text-decoration:none}
+.btn.main{background:var(--ink);color:var(--bg)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:40px}
+.facts div{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:var(--card)}
+.facts b{display:block;font:500 13px var(--b);color:var(--mute)}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 16px}
+.shots figure{flex:0 0 auto;scroll-snap-align:start;max-width:230px}
+.shots img{display:block;height:440px;width:auto;aspect-ratio:1206/2622;border-radius:24px;border:1px solid var(--line);background:var(--card)}
+.shots figcaption{font-size:14px;color:var(--mute);margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.card{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card)}
+.card ul{padding-left:18px;color:var(--mute);font-size:16px}
+.card li{margin-bottom:6px}
+pre{overflow-x:auto;border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card);font:14px/1.6 ui-monospace,Menlo,Consolas,monospace}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}
+.chips li{font-size:15px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+p.n{color:var(--mute);max-width:40em}
+.note{font-size:14px;color:var(--mute);margin-top:12px}
+footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mute);font-size:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<div class="w">
+<header><a class="logo" href="/">← helltrilla</a><a href="https://github.com/helltrilla/todo">GitHub</a></header>
+
+<main>
+<span class="tag">готов · обновляется</span>
+<h1>TodoApp</h1>
+<p class="lead">Современный менеджер задач на Flutter: настраиваемые категории с иконками, подзадачи с прогрессом, встроенный Pomodoro-таймер фокусировки и надёжная авторизация через Supabase OTP.</p>
+<div class="btns">
+  <a class="btn main" href="https://github.com/helltrilla/todo">Код на GitHub</a>
+  <a class="btn" href="#features">Возможности</a>
+</div>
+<div class="facts">
+  <div><b>Платформа</b>iOS, Android</div>
+  <div><b>Стек</b>Flutter 3 · Dart 3</div>
+  <div><b>Бэкенд</b>Supabase</div>
+  <div><b>Архитектура</b>Clean Architecture</div>
+</div>
+
+<h2>Скриншоты</h2>
+<div class="shots">
+  <figure><img src="img/todo/onboarding_screen.png" data-f="onboarding_screen.png" alt="Онбординг" width="202" height="440" loading="lazy"><figcaption>Онбординг</figcaption></figure>
+  <figure><img src="img/todo/welcome_screen.png" data-f="welcome_screen.png" alt="Авторизация" width="202" height="440" loading="lazy"><figcaption>Авторизация</figcaption></figure>
+  <figure><img src="img/todo/home_screen.png" data-f="home_screen.png" alt="Главный экран" width="202" height="440" loading="lazy"><figcaption>Главный экран</figcaption></figure>
+  <figure><img src="img/todo/settings_screen.png" data-f="settings_screen.png" alt="Профиль и настройки" width="202" height="440" loading="lazy"><figcaption>Настройки</figcaption></figure>
+</div>
+
+<h2 id="features">Возможности</h2>
+<div class="grid">
+  <article class="card"><h3>Умные задачи и подзадачи</h3><ul>
+    <li>Создание подзадач внутри любой задачи с интерактивными чекбоксами на карточке</li>
+    <li>Бейдж прогресса (напр. 2/3)</li>
+    <li>Автоматическое завершение задачи при выполнении всех подзадач</li></ul></article>
+  <article class="card"><h3>Кастомные категории</h3><ul>
+    <li>Конструктор категорий с выбором из 12 тематических иконок и 10 цветовых палитр</li>
+    <li>Глобальная категория «Общее» с золотой подсветкой для общих задач</li></ul></article>
+  <article class="card"><h3>Двухрежимная авторизация</h3><ul>
+    <li>Вход по Email с настоящим 6-значным кодом (через Supabase Auth REST API)</li>
+    <li>Внутренний профиль (логин/пароль) с локальным хранением для офлайн-работы</li></ul></article>
+  <article class="card"><h3>Интерактивный онбординг</h3><ul>
+    <li>Приветственные слайды с векторной графикой при первом запуске</li>
+    <li>Запоминание статуса первого входа</li></ul></article>
+  <article class="card"><h3>4 уровня приоритета</h3><ul>
+    <li>P1 — Срочно 🔥 (красный акцент и выделенная рамка карточки)</li>
+    <li>P2 — Высокий ⚡ (оранжевый акцент)</li>
+    <li>P3 — Средний 📌 (фиолетовый акцент)</li>
+    <li>P4 — Низкий 🌿 (зелёный акцент)</li></ul></article>
+  <article class="card"><h3>Таймер фокусировки</h3><ul>
+    <li>Встроенный Pomodoro-таймер для концентрации над задачами</li></ul></article>
+</div>
+
+<h2>Архитектура</h2>
+<p class="n" style="margin-bottom:20px">Приложение построено по принципам Feature-First Clean Architecture, разделяя логику, данные и UI.</p>
+
+<h2>Стек</h2>
+<ul class="chips"><li>Flutter</li><li>Dart</li><li>Provider</li><li>go_router</li><li>Supabase</li><li>Google Fonts</li><li>shared_preferences</li></ul>
+
+<h2>Запуск</h2>
+<pre>git clone https://github.com/helltrilla/todo.git
+cd todo
+flutter pub get
+flutter analyze
+flutter test
+flutter run</pre>
+<p class="note">Необходим Flutter SDK 3.10 или новее.</p>
+</main>
+
+<footer><span>© helltrilla · лицензия MIT</span><a href="/">На главную</a></footer>
+</div>
+<script>
+document.addEventListener('error',function(e){var t=e.target;if(t.tagName==='IMG'&&t.dataset.f&&!t.dataset.r){t.dataset.r=1;t.src='https://raw.githubusercontent.com/helltrilla/todo/main/assets/screenshots/'+t.dataset.f}},true);
+</script>
+</body>
+</html>
