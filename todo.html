@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TodoApp — Менеджер задач на Flutter · helltrilla</title>
-<meta name="description" content="TodoApp — мощный менеджер задач на Flutter: PWA, виджеты iOS 17, Gemini AI, оффлайн-синхронизация с Supabase и аналитика продуктивности.">
+<title>TodoApp — Executive-менеджер задач на Flutter · helltrilla</title>
+<meta name="description" content="TodoApp — персональный executive-центр на Flutter: AI Daily Digest (Gemini 2.0 Flash), Матрица Эйзенхауэра 2x2 с Drag-and-Drop, Siri Shortcuts, оффлайн-синхронизация Supabase, виджеты iOS 17 и фокус-аудиостудия.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TodoApp — Менеджер задач на Flutter">
-<meta property="og:description" content="PWA, iOS-виджеты, Gemini AI, NLP, оффлайн-синхронизация, бэкапы через Isolates и тепловая карта продуктивности.">
+<meta property="og:title" content="TodoApp — Executive-менеджер задач на Flutter">
+<meta property="og:description" content="AI Daily Digest на Gemini 2.0 Flash, интерактивная Матрица Эйзенхауэра 2x2, Siri Deep Links, 120-Day Heatmap, DSP-аудиостудия фокуса и Supabase Offline-First.">
 <meta property="og:url" content="https://helltrilla.github.io/todo.html">
 <meta property="og:image" content="https://helltrilla.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@ h1{font:700 clamp(36px,8vw,72px)/1.05 var(--d);letter-spacing:-.02em;margin:40px
 h2{font:700 clamp(22px,3.5vw,30px)/1.2 var(--d);margin:72px 0 28px}
 h3{font:700 17px var(--d);margin-bottom:10px}
 .tag{display:inline-block;font:500 14px var(--b);padding:3px 14px;border:1px solid currentColor;border-radius:999px}
-.lead{max-width:36em;color:var(--mute);font-size:19px;margin:20px 0 32px}
+.lead{max-width:38em;color:var(--mute);font-size:19px;margin:20px 0 32px}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{padding:13px 24px;border-radius:999px;border:2px solid var(--ink);font-weight:500;text-decoration:none}
 .btn.main{background:var(--ink);color:var(--bg)}
@@ -61,73 +61,130 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;colo
 <header><a class="logo" href="/">← helltrilla</a><a href="https://github.com/helltrilla/todo">GitHub</a></header>
 
 <main>
-<span class="tag">готов · обновляется</span>
+<span class="tag">готов · v2.0.1 · обновляется</span>
 <h1>TodoApp</h1>
-<p class="lead">Многофункциональный менеджер задач: PWA, виджеты iOS 17 (WidgetKit), распознавание речи с NLP и Gemini AI, тепловая карта продуктивности и двухсторонняя оффлайн-синхронизация через Supabase.</p>
+<p class="lead">Персональный executive-центр на Flutter: утренний AI Daily Digest на базе Google Gemini 2.0 Flash, интерактивная Матрица Эйзенхауэра 2x2 с тактильным Drag-and-Drop, голосовые шорткаты Siri и Google Assistant, 120-дневный Heatmap активности, процедурная DSP аудио-студия концентрации и отказоустойчивая Offline-First синхронизация с Supabase.</p>
 <div class="btns">
   <a class="btn main" href="https://github.com/helltrilla/todo">Код на GitHub</a>
   <a class="btn" href="#features">Возможности</a>
 </div>
 <div class="facts">
-  <div><b>Платформы</b>iOS, Android, Web (PWA)</div>
+  <div><b>Платформы</b>iOS (iPhone 17 Ready) · Android · Web (PWA)</div>
   <div><b>Стек</b>Flutter 3.x · Dart 3.11+</div>
-  <div><b>Бэкенд</b>Supabase PostgREST</div>
-  <div><b>AI / NLP</b>Gemini Flash / RegExp</div>
+  <div><b>Архитектура</b>Clean Architecture</div>
+  <div><b>AI & Cloud</b>Gemini 2.0 Flash · Supabase PostgREST</div>
 </div>
 
 <h2>Скриншоты</h2>
 <div class="shots">
-  <figure><img src="img/todo/home_screen.png" data-f="home_screen.png" alt="Главный экран" width="202" height="440" loading="lazy"><figcaption>Задачи и чек-листы</figcaption></figure>
-  <figure><img src="img/todo/profile_screen.png" data-f="profile_screen.png" alt="Аналитика и профиль" width="202" height="440" loading="lazy"><figcaption>Дашборд и Heatmap</figcaption></figure>
-  <figure><img src="img/todo/focus_music_screen.png" data-f="focus_music_screen.png" alt="Музыкальный хаб" width="202" height="440" loading="lazy"><figcaption>Музыкальный хаб</figcaption></figure>
-  <figure><img src="img/todo/focus_screen.png" data-f="focus_screen.png" alt="Фокус-студия" width="202" height="440" loading="lazy"><figcaption>Таймер фокуса</figcaption></figure>
-  <figure><img src="img/todo/settings_screen.png" data-f="settings_screen.png" alt="Настройки" width="202" height="440" loading="lazy"><figcaption>Темы и локализация</figcaption></figure>
+  <figure><img src="img/todo/home_screen.png" data-f="home_screen.png" alt="AI Daily Digest & Задачи" width="202" height="440" loading="lazy"><figcaption>AI Daily Digest & Задачи</figcaption></figure>
+  <figure><img src="img/todo/focus_screen.png" data-f="focus_screen.png" alt="Таймер фокуса" width="202" height="440" loading="lazy"><figcaption>Таймер фокуса (Pomodoro)</figcaption></figure>
+  <figure><img src="img/todo/focus_music_screen.png" data-f="focus_music_screen.png" alt="Музыка и DSP Аудио-микшер" width="202" height="440" loading="lazy"><figcaption>Музыка и DSP Аудио-микшер</figcaption></figure>
+  <figure><img src="img/todo/profile_screen.png" data-f="profile_screen.png" alt="120-Day Heatmap и Дашборд" width="202" height="440" loading="lazy"><figcaption>120-Day Heatmap и Дашборд</figcaption></figure>
+  <figure><img src="img/todo/settings_screen.png" data-f="settings_screen.png" alt="Темы и локализация" width="202" height="440" loading="lazy"><figcaption>Темы, палитра и языки</figcaption></figure>
+  <figure><img src="img/todo/onboarding_screen.png" data-f="onboarding_screen.png" alt="Интерактивный онбординг" width="202" height="440" loading="lazy"><figcaption>Интерактивный онбординг</figcaption></figure>
+  <figure><img src="img/todo/welcome_screen.png" data-f="welcome_screen.png" alt="Авторизация Supabase OTP" width="202" height="440" loading="lazy"><figcaption>Авторизация Supabase OTP</figcaption></figure>
 </div>
 
 <h2 id="features">Возможности</h2>
 <div class="grid">
-  <article class="card"><h3>Дашборд продуктивности</h3><ul>
-    <li>120-дневная Heatmap-матрица (как в GitHub) с 4 уровнями активности</li>
-    <li>Круговая диаграмма (Donut Chart) приоритетов и категорий</li>
-    <li>Стрик-трекер: отслеживание серии дней без пропусков (Streak)</li></ul></article>
-  <article class="card"><h3>Интерактивные виджеты iOS 17</h3><ul>
-    <li>Нативные виджеты на Swift/SwiftUI (WidgetKit + App Groups)</li>
-    <li>Выполнение задач и запуск таймера прямо с Home/Lock Screen</li></ul></article>
-  <article class="card"><h3>Речь в текст + AI и NLP</h3><ul>
-    <li>Движок NLP парсит сроки («завтра в 18:00») и приоритеты («срочно»)</li>
-    <li>Gemini Flash API для сложных ИИ-запросов и анализа намерений</li></ul></article>
-  <article class="card"><h3>Двухсторонняя Offline-First синхронизация</h3><ul>
-    <li>Локальная работа с нулевой задержкой</li>
-    <li>Синхронизация с Supabase PostgREST в фоне (с поддержкой Pull-to-Refresh)</li>
-    <li>Резолв конфликтов (LWW) по времени изменения (updatedAt)</li></ul></article>
-  <article class="card"><h3>Экспорт данных через Isolates</h3><ul>
-    <li>Тяжелая сериализация данных вынесена в фоновые изоляты (Dart Isolates)</li>
-    <li>Экспорт в форматы JSON, CSV (для Excel/Google Sheets) и Markdown</li></ul></article>
-  <article class="card"><h3>Фокус-студия и аудиоплеер</h3><ul>
-    <li>Генератор фонового шума (дождь, океан, кафе) с микшером громкости</li>
-    <li>Интеграция с экраном блокировки iOS (Control Center Now Playing)</li>
-    <li>Pomodoro-таймер с настройкой от 1 до 120 минут</li></ul></article>
-  <article class="card"><h3>Кроссплатформенность и темы</h3><ul>
-    <li>Сборка под Web (PWA) и мобильные устройства</li>
-    <li>4 темы оформления, включая глубокий AMOLED Midnight (#000000)</li>
-    <li>Мгновенная локализация на 5 языков (RU, EN, DE, FR, SR)</li></ul></article>
+  <article class="card"><h3>🤖 AI Daily Digest (Google Gemini 2.0 Flash)</h3><ul>
+    <li>Умная утренняя саммари-сводка на день с анализом дедлайнов и приоритетов</li>
+    <li>Автоопределение главной Top-1 задачи и оптимального окна пиковой энергии (10:00 – 12:30)</li>
+    <li>Кэширование на 24 часа в SharedPreferences и детерминированный оффлайн-движок HeuristicDigestGenerator</li>
+    <li>Неоморфная карточка со skeleton-shimmer анимацией загрузки</li></ul></article>
+
+  <article class="card"><h3>🗂️ Матрица Эйзенхауэра 2x2 с Drag-and-Drop</h3><ul>
+    <li>Мгновенное переключение между классическим списком и 4 квадрантами (Do, Schedule, Delegate, Eliminate)</li>
+    <li>Тактильное перетаскивание задач через LongPressDraggable и DragTarget</li>
+    <li>Автоматическая реклассификация срочности, важности и приоритетов (P1–P4) при дропе</li>
+    <li>Фирменный Taptic Engine виброотклик при захвате карточки</li></ul></article>
+
+  <article class="card"><h3>🎙️ Голосовые шорткаты и Siri Deep Links</h3><ul>
+    <li>Интеграция с Siri и Google Assistant через URL-схему <code>todo://</code></li>
+    <li>Шорткаты рабочего стола iOS (UIApplicationShortcutItems) и Android (shortcuts.xml)</li>
+    <li>Распознавание речи с мгновенным извлечением даты («завтра в 18:00») и приоритета («срочно»)</li></ul></article>
+
+  <article class="card"><h3>📊 Дашборд продуктивности & 120-Day Heatmap</h3><ul>
+    <li>120-дневная матрица завершённых задач в стиле GitHub с 4 уровнями активности</li>
+    <li>Круговая диаграмма (Donut Chart) по категориям и уровням приоритета</li>
+    <li>Стрик-трекер непрерывной серии продуктивных дней и аналитика минут фокуса</li></ul></article>
+
+  <article class="card"><h3>🎧 Фокус-студия и процедурный DSP-микшер</h3><ul>
+    <li>6 процедурных генераторов звуков (дождь, костёр, белый шум, океан, уютное кафе, винил)</li>
+    <li>Двухканальный микшер громкости: независимая регулировка шумов и музыки</li>
+    <li>Музыкальный хаб (Spotify, Apple Music, Yandex) с поддержкой Lock Screen Now Playing</li>
+    <li>Кастомный Pomodoro-таймер с настройкой от 1 до 120 минут</li></ul></article>
+
+  <article class="card"><h3>☁️ Двухсторонняя Offline-First синхронизация</h3><ul>
+    <li>Мгновенный локальный отклик интерфейса с нулевой задержкой</li>
+    <li>Фоновая синхронизация с Supabase PostgREST (с поддержкой Pull-to-Refresh)</li>
+    <li>Разрешение конфликтов Last-Write-Wins (LWW) по миллисекундным таймстемпам и RLS-политики PostgreSQL</li></ul></article>
+
+  <article class="card"><h3>📱 Интерактивные виджеты iOS 17 (WidgetKit)</h3><ul>
+    <li>Нативные виджеты для домашнего экрана и экрана блокировки на Swift / SwiftUI</li>
+    <li>Синхронизация через Apple App Groups без открытия основного приложения</li>
+    <li>Интерактивные кнопки: отметка выполнения задач и запуск таймера</li></ul></article>
+
+  <article class="card"><h3>💾 Экспорт через Dart Isolates</h3><ul>
+    <li>Фоновая сериализация без просадок 60 FPS интерфейса</li>
+    <li>3 формата экспорта: JSON (полный бэкап), RFC 4180 CSV (Excel/Sheets) и Markdown (Obsidian)</li>
+    <li>Нативный системный Share Sheet (AirDrop, Telegram, Files)</li></ul></article>
+
+  <article class="card"><h3>🎨 4 темы, цветовая палитра и 5 языков</h3><ul>
+    <li>Dark, обновлённая высококонтрастная Light, System и ультрачёрный AMOLED Midnight (#000000)</li>
+    <li>Селектор акцентных палитр оформления</li>
+    <li>Мгновенная локализация без перезапуска (RU, EN, DE, FR, SR) с учётом правил плюрализации</li></ul></article>
 </div>
 
-<h2>Архитектура</h2>
-<p class="n" style="margin-bottom:20px">Проект построен по подходу Feature-First Clean Architecture. Реализована строгая изоляция слоёв, RLS-политики на стороне базы данных Supabase и эффективная работа с кэшем.</p>
+<h2>Архитектура и Тесты</h2>
+<p class="n" style="margin-bottom:12px">Кодовая база структурирована строго по Feature-First Clean Architecture с изоляцией domain-сущностей, use case, репозиториев и UI.</p>
+<p class="n" style="margin-bottom:20px"><b>101/101 тестов успешно проходят (100% green)</b> — автоматизированные unit- и widget-тесты покрывают AI Digest, Матрицу Эйзенхауэра, отказоустойчивый синк, парсинг диплинков и сценарии авторизации.</p>
+
+<pre>lib/
+├── core/                # Темизация, локализация, Haptics, Deep Link Router
+├── features/
+│   ├── ai_digest/       # Gemini 2.0 Flash REST API + Heuristic Fallback
+│   ├── matrix/          # 2x2 Eisenhower Drag-and-Drop Grid
+│   ├── tasks/           # Clean Architecture: domain, data, presentation
+│   ├── focus/           # Procedural DSP Audio Engine & Pomodoro Timer
+│   └── auth/            # Supabase OTP REST API + Local Auth
+└── main.dart            # MultiProvider, делегаты локализации, точка входа</pre>
 
 <h2>Стек</h2>
-<ul class="chips"><li>Flutter</li><li>Dart</li><li>Provider</li><li>Supabase</li><li>WidgetKit (Swift)</li><li>Gemini API</li><li>Isolates</li><li>flutter_localizations</li></ul>
+<ul class="chips">
+  <li>Flutter 3.x</li>
+  <li>Dart 3.11+</li>
+  <li>Clean Architecture</li>
+  <li>Provider</li>
+  <li>Google Gemini 2.0 Flash</li>
+  <li>Supabase PostgREST</li>
+  <li>WidgetKit (Swift / SwiftUI)</li>
+  <li>Siri Deep Links</li>
+  <li>Procedural DSP Audio</li>
+  <li>Dart Isolates</li>
+  <li>flutter_localizations</li>
+  <li>101 Automated Tests (Mocktail)</li>
+</ul>
 
 <h2>Запуск</h2>
-<pre>git clone https://github.com/helltrilla/todo.git
+<pre># 1. Клонирование репозитория
+git clone https://github.com/helltrilla/todo.git
 cd todo
+
+# 2. Установка зависимостей
 flutter pub get
-# Запуск на устройстве:
+
+# 3. Запуск анализатора кода и 101 теста
+flutter analyze --fatal-infos
+flutter test
+
+# 4. Запуск на симуляторе или устройстве
 flutter run
-# Запуск в браузере (Web PWA):
+
+# 5. Запуск веб-версии (PWA)
 flutter run -d chrome</pre>
-<p class="note">Необходим Flutter SDK 3.10 или новее.</p>
+<p class="note">Требуется Flutter SDK 3.10+ и Xcode для запуска на iOS.</p>
 </main>
 
 <footer><span>© helltrilla · лицензия MIT</span><a href="/">На главную</a></footer>
