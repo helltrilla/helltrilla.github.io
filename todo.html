@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TodoApp — Менеджер задач на Flutter · helltrilla</title>
-<meta name="description" content="TodoApp — мобильное приложение на Flutter: менеджер задач, категории, подзадачи, таймер фокусировки и Supabase.">
+<meta name="description" content="TodoApp — мощный менеджер задач на Flutter: PWA, виджеты iOS 17, Gemini AI, оффлайн-синхронизация с Supabase и аналитика продуктивности.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TodoApp — Менеджер задач на Flutter">
-<meta property="og:description" content="Категории с иконками, подзадачи, Pomodoro-таймер и авторизация через Supabase OTP.">
+<meta property="og:description" content="PWA, iOS-виджеты, Gemini AI, NLP, оффлайн-синхронизация, бэкапы через Isolates и тепловая карта продуктивности.">
 <meta property="og:url" content="https://helltrilla.github.io/todo.html">
 <meta property="og:image" content="https://helltrilla.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -63,67 +63,70 @@ footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 40px;colo
 <main>
 <span class="tag">готов · обновляется</span>
 <h1>TodoApp</h1>
-<p class="lead">Современный менеджер задач на Flutter: настраиваемые чек-листы, Pomodoro-таймер с генератором фонового шума, 4 темы оформления (включая AMOLED), мгновенная локализация на 5 языков и надёжная авторизация через Supabase OTP.</p>
+<p class="lead">Многофункциональный менеджер задач: PWA, виджеты iOS 17 (WidgetKit), распознавание речи с NLP и Gemini AI, тепловая карта продуктивности и двухсторонняя оффлайн-синхронизация через Supabase.</p>
 <div class="btns">
   <a class="btn main" href="https://github.com/helltrilla/todo">Код на GitHub</a>
   <a class="btn" href="#features">Возможности</a>
 </div>
 <div class="facts">
-  <div><b>Платформа</b>iOS, Android</div>
-  <div><b>Стек</b>Flutter 3 · Dart 3</div>
-  <div><b>Бэкенд</b>Supabase</div>
-  <div><b>Архитектура</b>Clean Architecture</div>
+  <div><b>Платформы</b>iOS, Android, Web (PWA)</div>
+  <div><b>Стек</b>Flutter 3.x · Dart 3.11+</div>
+  <div><b>Бэкенд</b>Supabase PostgREST</div>
+  <div><b>AI / NLP</b>Gemini Flash / RegExp</div>
 </div>
 
 <h2>Скриншоты</h2>
 <div class="shots">
-  <figure><img src="img/todo/home_screen.png" data-f="home_screen.png" alt="Главный экран" width="202" height="440" loading="lazy"><figcaption>Главный экран</figcaption></figure>
-  <figure><img src="img/todo/focus_screen.png" data-f="focus_screen.png" alt="Фокус и аудио-хаб" width="202" height="440" loading="lazy"><figcaption>Фокус и аудио-хаб</figcaption></figure>
-  <figure><img src="img/todo/settings_screen.png" data-f="settings_screen.png" alt="Профиль и настройки" width="202" height="440" loading="lazy"><figcaption>Настройки</figcaption></figure>
-  <figure><img src="img/todo/onboarding_screen.png" data-f="onboarding_screen.png" alt="Онбординг" width="202" height="440" loading="lazy"><figcaption>Онбординг</figcaption></figure>
-  <figure><img src="img/todo/welcome_screen.png" data-f="welcome_screen.png" alt="Авторизация" width="202" height="440" loading="lazy"><figcaption>Авторизация</figcaption></figure>
+  <figure><img src="img/todo/home_screen.png" data-f="home_screen.png" alt="Главный экран" width="202" height="440" loading="lazy"><figcaption>Задачи и чек-листы</figcaption></figure>
+  <figure><img src="img/todo/profile_screen.png" data-f="profile_screen.png" alt="Аналитика и профиль" width="202" height="440" loading="lazy"><figcaption>Дашборд и Heatmap</figcaption></figure>
+  <figure><img src="img/todo/focus_music_screen.png" data-f="focus_music_screen.png" alt="Музыкальный хаб" width="202" height="440" loading="lazy"><figcaption>Музыкальный хаб</figcaption></figure>
+  <figure><img src="img/todo/focus_screen.png" data-f="focus_screen.png" alt="Фокус-студия" width="202" height="440" loading="lazy"><figcaption>Таймер фокуса</figcaption></figure>
+  <figure><img src="img/todo/settings_screen.png" data-f="settings_screen.png" alt="Настройки" width="202" height="440" loading="lazy"><figcaption>Темы и локализация</figcaption></figure>
 </div>
 
 <h2 id="features">Возможности</h2>
 <div class="grid">
-  <article class="card"><h3>Локализация на 5 языков</h3><ul>
-    <li>Поддержка русского, английского, немецкого, французского и сербского языков</li>
-    <li>Мгновенное переключение без перезапуска приложения</li>
-    <li>Правильная плюрализация слов (1 задача, 2 задачи, 5 задач)</li></ul></article>
-  <article class="card"><h3>4 темы оформления</h3><ul>
-    <li>Тёмная, Светлая, Системная</li>
-    <li>AMOLED Midnight (глубокий чёрный #000000) для экономии батареи</li></ul></article>
-  <article class="card"><h3>Фокус-студия и музыкальный хаб</h3><ul>
-    <li>Генератор фонового шума (дождь, океан, кафе, винил) с микшером</li>
-    <li>Встроенный музыкальный плеер с подгрузкой обложек</li>
-    <li>Интеграция с экраном блокировки (Now Playing)</li></ul></article>
-  <article class="card"><h3>Умные задачи и подзадачи</h3><ul>
-    <li>Создание подзадач внутри любой задачи с интерактивными чекбоксами на карточке</li>
-    <li>Бейдж прогресса (напр. 2/3)</li>
-    <li>Автоматическое завершение задачи при выполнении всех подзадач</li></ul></article>
-  <article class="card"><h3>Кастомные категории</h3><ul>
-    <li>Конструктор категорий с выбором из 12 тематических иконок и 10 цветовых палитр</li>
-    <li>Глобальная категория «Общее» с золотой подсветкой для общих задач</li></ul></article>
-  <article class="card"><h3>Двухрежимная авторизация</h3><ul>
-    <li>Вход по Email с настоящим 6-значным кодом (через Supabase Auth REST API)</li>
-    <li>Внутренний профиль (логин/пароль) с локальным хранением для офлайн-работы</li></ul></article>
-  <article class="card"><h3>Таймер фокусировки</h3><ul>
-    <li>Встроенный Pomodoro-таймер для концентрации над задачами</li></ul></article>
+  <article class="card"><h3>Дашборд продуктивности</h3><ul>
+    <li>120-дневная Heatmap-матрица (как в GitHub) с 4 уровнями активности</li>
+    <li>Круговая диаграмма (Donut Chart) приоритетов и категорий</li>
+    <li>Стрик-трекер: отслеживание серии дней без пропусков (Streak)</li></ul></article>
+  <article class="card"><h3>Интерактивные виджеты iOS 17</h3><ul>
+    <li>Нативные виджеты на Swift/SwiftUI (WidgetKit + App Groups)</li>
+    <li>Выполнение задач и запуск таймера прямо с Home/Lock Screen</li></ul></article>
+  <article class="card"><h3>Речь в текст + AI и NLP</h3><ul>
+    <li>Движок NLP парсит сроки («завтра в 18:00») и приоритеты («срочно»)</li>
+    <li>Gemini Flash API для сложных ИИ-запросов и анализа намерений</li></ul></article>
+  <article class="card"><h3>Двухсторонняя Offline-First синхронизация</h3><ul>
+    <li>Локальная работа с нулевой задержкой</li>
+    <li>Синхронизация с Supabase PostgREST в фоне (с поддержкой Pull-to-Refresh)</li>
+    <li>Резолв конфликтов (LWW) по времени изменения (updatedAt)</li></ul></article>
+  <article class="card"><h3>Экспорт данных через Isolates</h3><ul>
+    <li>Тяжелая сериализация данных вынесена в фоновые изоляты (Dart Isolates)</li>
+    <li>Экспорт в форматы JSON, CSV (для Excel/Google Sheets) и Markdown</li></ul></article>
+  <article class="card"><h3>Фокус-студия и аудиоплеер</h3><ul>
+    <li>Генератор фонового шума (дождь, океан, кафе) с микшером громкости</li>
+    <li>Интеграция с экраном блокировки iOS (Control Center Now Playing)</li>
+    <li>Pomodoro-таймер с настройкой от 1 до 120 минут</li></ul></article>
+  <article class="card"><h3>Кроссплатформенность и темы</h3><ul>
+    <li>Сборка под Web (PWA) и мобильные устройства</li>
+    <li>4 темы оформления, включая глубокий AMOLED Midnight (#000000)</li>
+    <li>Мгновенная локализация на 5 языков (RU, EN, DE, FR, SR)</li></ul></article>
 </div>
 
 <h2>Архитектура</h2>
-<p class="n" style="margin-bottom:20px">Приложение построено по принципам Feature-First Clean Architecture, разделяя логику, данные и UI.</p>
+<p class="n" style="margin-bottom:20px">Проект построен по подходу Feature-First Clean Architecture. Реализована строгая изоляция слоёв, RLS-политики на стороне базы данных Supabase и эффективная работа с кэшем.</p>
 
 <h2>Стек</h2>
-<ul class="chips"><li>Flutter</li><li>Dart</li><li>Provider</li><li>go_router</li><li>Supabase</li><li>flutter_localizations</li><li>shared_preferences</li></ul>
+<ul class="chips"><li>Flutter</li><li>Dart</li><li>Provider</li><li>Supabase</li><li>WidgetKit (Swift)</li><li>Gemini API</li><li>Isolates</li><li>flutter_localizations</li></ul>
 
 <h2>Запуск</h2>
 <pre>git clone https://github.com/helltrilla/todo.git
 cd todo
 flutter pub get
-flutter analyze
-flutter test
-flutter run</pre>
+# Запуск на устройстве:
+flutter run
+# Запуск в браузере (Web PWA):
+flutter run -d chrome</pre>
 <p class="note">Необходим Flutter SDK 3.10 или новее.</p>
 </main>
 
